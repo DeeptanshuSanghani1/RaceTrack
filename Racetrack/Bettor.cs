@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Popups;
 
 namespace Racetrack
 {
@@ -31,6 +35,8 @@ namespace Racetrack
             set { _cash = value; }
         }
 
+        public Bettor() { }
+
         //Constructor Class for Bettor
         public Bettor(string nm, int cash)
         {
@@ -38,20 +44,31 @@ namespace Racetrack
             this._cash = cash;
         }
 
+        public TextBox myLabel = null;
+
         //Create an instance of Bet and store it in betPlaced field
         public Bet betPlaced = null;
 
         //Method to place a new bet and store in betPlaced field
         //The class will return true if the bettor has enough money to bet
-        public bool PlaceBet(int betAmount, Greyhound houndToWin)
+        public bool PlaceBet(int betAmount, int houndToWin)
         {
-            return true;
+            if (betAmount < 0)
+                return false;
+            else
+            {
+                Cash -= betAmount; //Remove the amount of bet placed from Cash
+
+                betPlaced = new Bet(betAmount, houndToWin);
+
+                return true;
+            }
         }
 
         //Method to initialize the bet amount to 0
         public void ClearBet()
         {
-
+            betPlaced = null;
         }
 
         //This method uses betPlaced to payout the amount to the winner
@@ -61,9 +78,16 @@ namespace Racetrack
         }
 
         //Method to change the label when the bet is placed
-        public void UpdateLabels()
+        public string UpdateLabels()
         {
+            if (betPlaced == null)
+                return " hasn't placed any bets";
 
+            if (betPlaced.Amount > Cash)
+                return " doesn't have that amount of money";
+
+
+            return betPlaced.GetDescription();
         }
     }
 }

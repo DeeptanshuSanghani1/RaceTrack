@@ -30,12 +30,16 @@ namespace Racetrack
             set { _racehound = value; }
         }
 
+        public Bet() { }
+
         //Constructor Class for bet
         public Bet(int amt, int hound)
         {
             this._amount = amt;
             this._racehound = hound;
         }
+
+        public Bettor _bettor = new Bettor();
         //This method calculates the payout amount and adds it to the Winners total cash
         public int Payout(int winner)
         {
@@ -45,7 +49,7 @@ namespace Racetrack
         // This method returns a string that says who placed the bet and for how much amount.
         public string GetDescription()
         {
-            return null;
+            return " bets $ " + Amount + " on dog # " + Racehound;
         }
     }
 }

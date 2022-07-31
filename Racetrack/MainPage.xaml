@@ -14,38 +14,41 @@
         <Rectangle HorizontalAlignment="Left" Height="35" Margin="0,273,0,0" Stroke="Black" VerticalAlignment="Top" Width="1441" Fill="White"/>
         <Rectangle HorizontalAlignment="Left" Height="35" Stroke="Black" VerticalAlignment="Top" Width="1441" Fill="White" Margin="0,431,0,0"/>
 
-        <TextBox HorizontalAlignment="Left" Margin="12,630,0,0" TextWrapping="Wrap" Text="Betting Parlor" 
-                 VerticalAlignment="Top" FontSize="36" FontWeight="Normal" BorderThickness="0,0,0,0"/>
-        <TextBox HorizontalAlignment="Left" Margin="12,692,0,0" TextWrapping="Wrap" Text="Minimum bet is {5}" 
-                 VerticalAlignment="Top" FontSize="22" BorderThickness="0,0,0,0" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Margin="330,692,0,0" TextWrapping="Wrap" Text="Bets:" 
-                 VerticalAlignment="Top" FontSize="22" BorderThickness="0,0,0,0" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="12,630,0,0" TextWrapping="Wrap" Text="Betting Parlor" 
+                 VerticalAlignment="Top" FontSize="36" FontWeight="Normal" />
+        <TextBlock x:Name="minBetAmtLabel" HorizontalAlignment="Left" Margin="12,692,0,0" TextWrapping="Wrap" Text="" 
+                 VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="330,692,0,0" TextWrapping="Wrap" Text="Bets:" 
+                 VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
 
-        <RadioButton x:Name="JoeButton" Content="Joe's Button" Margin="22,752,0,0" VerticalAlignment="Top" 
+        <RadioButton x:Name="rbJoe" Content="Joe's Button" Margin="22,752,0,0" VerticalAlignment="Top" 
                      FontSize="18" Checked="OnBettorSelectorClicked"/>
-        <RadioButton x:Name="BobButton" Content="Bob's Button" Margin="22,802,0,0" VerticalAlignment="Top"  
+        <RadioButton x:Name="rbBob" Content="Bob's Button" Margin="22,802,0,0" VerticalAlignment="Top"  
                      FontSize="18" Checked="OnBettorSelectorClicked"/>
-        <RadioButton x:Name="AnnaButton" Content="Anna's Button" Margin="22,852,0,0" VerticalAlignment="Top" 
+        <RadioButton x:Name="rbAnna" Content="Anna's Button" Margin="22,852,0,0" VerticalAlignment="Top" 
                      FontSize="18" Checked="OnBettorSelectorClicked"/>
 
-        <TextBox HorizontalAlignment="Left" Margin="330,752,0,0" TextWrapping="Wrap" 
-                 Text="" VerticalAlignment="Top" BorderThickness="1,1,1,1" PlaceholderText="Joe's Bet Amount" Width="680"/>
-        <TextBox HorizontalAlignment="Left" Margin="330,802,0,0" TextWrapping="Wrap" 
-                 Text="" VerticalAlignment="Top" BorderThickness="1,1,1,1" PlaceholderText="Bob's Bet Amount" Width="680"/>
-        <TextBox HorizontalAlignment="Left" Margin="330,852,0,0" TextWrapping="Wrap" 
-                 Text="" VerticalAlignment="Top" BorderThickness="1,1,1,1" PlaceholderText="Anna's Bet Amount" Width="680" />
+        <TextBox x:Name="JoesBetAmt" HorizontalAlignment="Left" Margin="330,752,0,0" TextWrapping="Wrap" 
+                 Text="" VerticalAlignment="Top" BorderThickness="1,1,1,1" 
+                 PlaceholderText="Joe's Bet Amount" Width="680" TextChanged="OnTextAmountChanged"/>
+        <TextBox x:Name="BobsBetAmt" HorizontalAlignment="Left" Margin="330,802,0,0" TextWrapping="Wrap" 
+                 Text="" VerticalAlignment="Top" BorderThickness="1,1,1,1" 
+                 PlaceholderText="Bob's Bet Amount" Width="680" TextChanged="OnTextAmountChanged"/>
+        <TextBox x:Name="AnnasBetAmt" HorizontalAlignment="Left" Margin="330,852,0,0" TextWrapping="Wrap" 
+                 Text="" VerticalAlignment="Top" BorderThickness="1,1,1,1" 
+                 PlaceholderText="Anna's Bet Amount" Width="680" TextChanged="OnTextAmountChanged"/>
 
-        <TextBox HorizontalAlignment="Left" x:Name="SelectedBettor" Margin="4,958,0,0" 
+        <TextBox HorizontalAlignment="Left" x:Name="CurrentBettor" Margin="4,958,0,0" 
                  TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="0,0,0,0" 
                  PlaceholderText="{}{SelectedBettor}" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Margin="123,960,0,0" TextWrapping="Wrap" 
-                 Text="bets" FontSize="16" BorderThickness="0,0,0,0"/>
-        <TextBox HorizontalAlignment="Left" Margin="172,960,0,0" TextWrapping="Wrap" 
+        <TextBlock HorizontalAlignment="Left" Margin="123,960,0,0" TextWrapping="Wrap" 
+                 Text="bets" FontSize="16" />
+        <TextBox x:Name="BetAmount" HorizontalAlignment="Left" Margin="172,960,0,0" TextWrapping="Wrap" 
                  Text="" VerticalAlignment="Top" Width="93" PlaceholderText="Amount" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Margin="261,960,0,0" TextWrapping="Wrap" 
-                 Text="bucks on dog number " VerticalAlignment="Top" BorderThickness="0,0,0,0" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="261,960,0,0" TextWrapping="Wrap" 
+                 Text="bucks on dog number " VerticalAlignment="Top" FontSize="16"/>
 
-        <ComboBox Margin="436,960,0,0" Width="120" PlaceholderText="Select Dog">
+        <ComboBox x:Name="SelectDog" Margin="436,960,0,0" Width="120" PlaceholderText="Select Dog">
             <x:String>1</x:String>
             <x:String>2</x:String>
             <x:String>3</x:String>

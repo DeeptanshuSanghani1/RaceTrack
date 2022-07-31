@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="Racetrack.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Racetrack"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Rectangle HorizontalAlignment="Left" Height="607" Stroke="Black" VerticalAlignment="Top" Width="1490" Fill="#FFD2CB1E"/>
+        <Rectangle HorizontalAlignment="Left" Height="35" Margin="0,124,0,0" Stroke="Black" VerticalAlignment="Top" Width="1431" Fill="White"/>
+        <Rectangle HorizontalAlignment="Left" Height="35" Margin="0,273,0,0" Stroke="Black" VerticalAlignment="Top" Width="1431" Fill="White"/>
+        <Rectangle HorizontalAlignment="Left" Height="35" Stroke="Black" VerticalAlignment="Top" Width="1431" Fill="White" Margin="0,431,0,0"/>
+        <TextBox HorizontalAlignment="Left" Margin="12,630,0,0" TextWrapping="Wrap" Text="Betting Parlor" VerticalAlignment="Top" FontSize="36" FontWeight="Normal" BorderThickness="0,0,0,0"/>
+        <TextBox HorizontalAlignment="Left" Margin="12,692,0,0" TextWrapping="Wrap" Text="Minimum bet is {5}" VerticalAlignment="Top" FontSize="22" BorderThickness="0,0,0,0" FontWeight="Bold"/>
+        <TextBox HorizontalAlignment="Left" Margin="330,692,0,0" TextWrapping="Wrap" Text="Bets:" VerticalAlignment="Top" FontSize="22" BorderThickness="0,0,0,0" FontWeight="Bold"/>
+        <RadioButton Content="Joe's Button" Margin="22,752,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <RadioButton x:ConnectionId='2' Content="Bob's Button" Margin="22,802,0,0" VerticalAlignment="Top"                               FontSize="18"/>
+        <RadioButton Content="Anna's Button" Margin="22,852,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <TextBox HorizontalAlignment="Left" Margin="330,752,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="1,1,1,1" PlaceholderText="Joe's Bet Amount" Width="680"/>
+        <TextBox HorizontalAlignment="Left" Margin="330,802,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="1,1,1,1" PlaceholderText="Bob's Bet Amount" Width="680"/>
+        <TextBox HorizontalAlignment="Left" Margin="330,852,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="1,1,1,1" PlaceholderText="Anna's Bet Amount" Width="680" />
+        <TextBox x:ConnectionId='3' HorizontalAlignment="Left" x:Name="SelectedBettor" Margin="4,958,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderThickness="0,0,0,0" PlaceholderText="{}{SelectedBettor}" FontSize="16"/>
+        <TextBox x:ConnectionId='4' HorizontalAlignment="Left" Margin="123,960,0,0" TextWrapping="Wrap" Text="bets" FontSize="16"                                     BorderThickness="0,0,0,0"/>
+        <TextBox HorizontalAlignment="Left" Margin="172,960,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93" PlaceholderText="Amount" FontSize="16"/>
+        <TextBox x:ConnectionId='5' HorizontalAlignment="Left" Margin="261,960,0,0" TextWrapping="Wrap" Text="bucks on dog number " VerticalAlignment="Top"                                     BorderThickness="0,0,0,0" FontSize="16"/>
+        <ComboBox Margin="436,960,0,0" Width="120" PlaceholderText="Select Dog">
+            <x:String>1</x:String>
+            <x:String>2</x:String>
+            <x:String>3</x:String>
+            <x:String>4</x:String>
+        </ComboBox>
+        <Button Content="Place Bet" Margin="585,961,0,0" VerticalAlignment="Top" Width="99"/>
+        <TextBox HorizontalAlignment="Left" Margin="1441,0,0,0" TextWrapping="Wrap" Text="&#xD;&#xD;&#xD;&#xD;F&#xD;&#xD; I&#xD;&#xD; N&#xD;&#xD; I&#xD;&#xD; S&#xD;&#xD; H" 
+                 VerticalAlignment="Top" VerticalContentAlignment="Center" TextAlignment="Center" AllowFocusOnInteraction="False" Foreground="White"
+                 Height="607" Width="49" FontStretch="ExtraExpanded" CharacterSpacing="1" FontSize="24" BorderThickness="0,0,0,0" Background="Black" SelectionHighlightColorWhenNotFocused="Black" />
+
+
+    </Grid>
+</Page>
+

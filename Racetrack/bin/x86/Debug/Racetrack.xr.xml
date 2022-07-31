@@ -39,7 +39,6 @@
       <RootProperty Name="CharacterSpacing" />
       <RootProperty Name="Background" />
       <RootProperty Name="SelectionHighlightColorWhenNotFocused" />
-      <RootEvent Name="TextChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.RadioButton">
       <RootProperty Name="Content" />
@@ -59,6 +58,8 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
+      <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="System.String" />
     <RootType FullName="Racetrack.MainPage" />

@@ -13,48 +13,62 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-
 namespace Racetrack
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+    //Main Class holds the objects and maintains the Interface interactions.
     public sealed partial class MainPage : Page
     {
+        //Main Class holds the objects and maintains the Interface interactions.
         public MainPage()
         {
             this.InitializeComponent();
+            CreateRaceHounds();
+            CreateBettors();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        //Method to create the Racehounds
+        public void CreateRaceHounds()
         {
 
         }
 
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        //Method to create the Bettors
+        public void CreateBettors()
         {
 
         }
 
-        private void TextBox_TextChanged_2(object sender, TextChangedEventArgs e)
+        //Method to execute on Load
+        public void OnLoad(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        //Method to set the Bettor on click of Radio Button
+        public void OnBettorSelectorClicked(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void TextBox_TextChanged_3(object sender, TextChangedEventArgs e)
+        //This method will execute on click of Place Bet button
+        //The method will call Place Bet method from Bettor class and 
+        //Update the label if the bet is successfully placed
+        public void OnPlaceBet(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void TextBox_TextChanged_4(object sender, TextChangedEventArgs e)
+        //Method that will be executed on click of Start button
+        public void OnStartRace(object sender, RoutedEventArgs e)
         {
 
         }
+
+        //This method checks if the Greyhound has reached the finish line
+        public void OnRaceTimer(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

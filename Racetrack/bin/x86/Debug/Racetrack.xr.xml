@@ -9,6 +9,9 @@
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="Children" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="RowDefinitions" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
       <RootProperty Name="HorizontalAlignment" />
@@ -69,6 +72,9 @@
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
       <RootEvent Name="Click" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
+      <RootProperty Name="Height" />
     </RootType>
     <RootType FullName="System.String" />
     <RootType FullName="Racetrack.MainPage" />

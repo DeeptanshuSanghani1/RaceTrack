@@ -34,6 +34,18 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.19041.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\deept\Desktop\Assignment3\Racetrack\Assets\GreyHound1.jpg">
+      <PackagePath>Assets\GreyHound1.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\deept\Desktop\Assignment3\Racetrack\Assets\GreyHound2.jpg">
+      <PackagePath>Assets\GreyHound2.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\deept\Desktop\Assignment3\Racetrack\Assets\GreyHound3.jpg">
+      <PackagePath>Assets\GreyHound3.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\deept\Desktop\Assignment3\Racetrack\Assets\GreyHound4.jpg">
+      <PackagePath>Assets\GreyHound4.jpg</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\deept\Desktop\Assignment3\Racetrack\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>

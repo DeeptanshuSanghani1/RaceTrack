@@ -1,33 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 using Windows.UI.Popups;
+using Windows.UI.Xaml.Media.Imaging;
+using System.Timers;
 
 namespace Racetrack
 {
     //Main Class holds the objects and maintains the Interface interactions.
-    public sealed partial class MainPage : Page
+    public partial class MainPage : Page
     {
 
         //Bettors List to store information of all bettors
         List<Bettor> _bettorList = new List<Bettor>();
-
+        List<Greyhound> _racehoundList = new List<Greyhound>();
+        
         Bettor _bettor;
 
         private const int minBet = 5;
-
+        private const int distance = 1300;
+        public bool racing = false;
+        Random random = new Random();
         //Main Class holds the objects and maintains the Interface interactions.
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -38,13 +35,45 @@ namespace Racetrack
         //Method to create the Racehounds
         public void CreateRaceHounds()
         {
-
+            //Add 4 Dogs to the Racehound list
+            _racehoundList.Add(new Greyhound
+            {
+                Randomizer = random,
+                GHImage = GetImage("Dog1"),
+                RaceTrackLength = distance,
+                Location = new System.Drawing.Point(0,0),
+                StartPosition = 0
+            });
+            _racehoundList.Add(new Greyhound
+            {
+                Randomizer = random,
+                GHImage = GetImage("Dog2"),
+                RaceTrackLength = distance,
+                Location = new System.Drawing.Point(0, 0),
+                StartPosition = 0
+            });
+            _racehoundList.Add(new Greyhound
+            {
+                Randomizer = random,
+                GHImage = GetImage("Dog3"),
+                RaceTrackLength = distance,
+                Location = new System.Drawing.Point(0, 0),
+                StartPosition = 0
+            });
+            _racehoundList.Add(new Greyhound
+            {
+                Randomizer = random,
+                GHImage = GetImage("Dog4"),
+                RaceTrackLength = distance,
+                Location = new System.Drawing.Point(0, 0),
+                StartPosition = 0
+            });
         }
 
         //Method to create the Bettors
         public void CreateBettors()
         {
-            //Create Bettors and Add to _bettorList
+            //Add 3 Bettors to the list
             _bettorList.Add(new Bettor
             {
                 Name = "Joe",
@@ -138,7 +167,8 @@ namespace Racetrack
             if (SelectDog.SelectedItem == null)
                 new MessageDialog("Select a Dog for placing the bet !!");
                 
-            _bettor.PlaceBet(int.Parse(BetAmount.Text), int.Parse(SelectDog.Text));
+            _bettor.PlaceBet(int.Parse(BetAmount.Text), int.Parse((string)SelectDog.SelectedItem));
+
             if (_bettor.Name == "Joe")
             {
                 JoesBetAmt.BorderThickness = new Thickness(0, 0, 0, 0);
@@ -157,17 +187,49 @@ namespace Racetrack
         }
 
         //Method that will be executed on click of Start button
-        public void OnStartRace(object sender, RoutedEventArgs e)
+        private async void OnStartRace(object sender, RoutedEventArgs e)
         {
 
+            Timer timer = new Timer();
+            timer.Start();
+            //Introducing Timer
+            if (!racing)
+            {
+                int winner = 0;
+                while (winner == 0)
+                {
+                    for (int i = 0; i < _racehoundList.Count; i++)
+                    {
+                        if (_racehoundList[i].Run())
+                        {
+                            racing = true;
+                            winner = i + 1;
+                            EndRace(_racehoundList[i]);
+                            break;
+                        }
+                    }
+                    await Task.Delay(1000);
+                }
+            }
+            else 
+            {
+                await Task.Delay(5000);
+                timer.Stop(); 
+            }
         }
 
         //This method checks if the Greyhound has reached the finish line
-        public void OnRaceTimer(object sender, RoutedEventArgs e)
+        public void OnRaceTimer(object sender, ElapsedEventArgs e)
         {
-
         }
 
+        private void EndRace(Greyhound winningDog)
+        {
+            for (int i = 0; i < _racehoundList.Count; i++)
+            {
+                _racehoundList[i].TakeStartingPosition(_racehoundList[i].GHImage.Name);
+            }
+        }
         private void SetBettor(int pindex)
         {
             _bettor = _bettorList[pindex];
@@ -183,6 +245,80 @@ namespace Racetrack
                 SelectDog.Text = "1";  //Set the default vlaue for Dog to 1
             }
 
+        }
+
+        //This methods creates the Image at Runtime and display on the Grid.
+        //The method also returns the image object 
+        public Image GetImage(string imageName)
+        {
+            Image img = new Image();
+            BitmapImage bitmapImage = new BitmapImage();
+
+            //Setting the width and height of all images to a fixed value;
+            img.Width = 120;
+            img.Height = 108;
+
+            //Setting the image source for each dog
+            switch (imageName) 
+            {
+                case "Dog1":
+                    //Defining Image Properties
+                    img.Name = "Dog1";
+                    bitmapImage.UriSource = new Uri("ms-appx:///Assets/GreyHound1.jpg");
+                    img.Source = bitmapImage;
+                    img.Margin = new Thickness(10,30,0,0);
+                    img.HorizontalAlignment = HorizontalAlignment.Left;
+                    img.VerticalAlignment = VerticalAlignment.Top;
+
+                    //Adding the image object to the Grid Row
+                    img.SetValue(Grid.RowProperty, 1);
+                    ImageGrid.Children.Add(img);
+
+                    break;
+
+                case "Dog2":
+                    //Defining Image Properties
+                    img.Name = "Dog2";
+                    bitmapImage.UriSource = new Uri("ms-appx:///Assets/GreyHound2.jpg");
+                    img.Source = bitmapImage;
+                    img.Margin = new Thickness(10,55,0,0);
+                    img.HorizontalAlignment = HorizontalAlignment.Left;
+                    img.VerticalAlignment = VerticalAlignment.Top;
+
+                    //Adding the image object to the Grid Row
+                    img.SetValue(Grid.RowProperty, 2);
+                    ImageGrid.Children.Add(img);
+                    break;
+
+                case "Dog3":
+                    //Defining Image Properties
+                    img.Name = "Dog3";
+                    bitmapImage.UriSource = new Uri("ms-appx:///Assets/GreyHound3.jpg");
+                    img.Source = bitmapImage;
+                    img.Margin = new Thickness(10, 50, 0, 0);
+                    img.HorizontalAlignment = HorizontalAlignment.Left;
+                    img.VerticalAlignment = VerticalAlignment.Top;
+
+                    //Adding the image object to the Grid Row
+                    img.SetValue(Grid.RowProperty, 3);
+                    ImageGrid.Children.Add(img);
+                    break;
+                case "Dog4":
+                    //Defining Image Properties
+                    img.Name = "Dog4";
+                    bitmapImage.UriSource = new Uri("ms-appx:///Assets/GreyHound4.jpg");
+                    img.Source = bitmapImage;
+                    img.Margin = new Thickness(10, 210, 0, 0);
+                    img.HorizontalAlignment = HorizontalAlignment.Left;
+                    img.VerticalAlignment = VerticalAlignment.Top;
+
+                    //Adding the image object to the Grid Row
+                    img.SetValue(Grid.RowProperty, 4);
+                    ImageGrid.Children.Add(img);
+                    break;
+            }
+            
+            return img;
         }
     }
 }

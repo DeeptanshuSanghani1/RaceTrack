@@ -62,7 +62,19 @@
                  Height="607" Width="49" FontStretch="ExtraExpanded" CharacterSpacing="1" FontSize="24" BorderThickness="0,0,0,0" Background="Black" SelectionHighlightColorWhenNotFocused="Black" />
 
         <Button Content="Start Race" Margin="1324,822,0,0" VerticalAlignment="Top" Height="154" Width="152" Click="OnStartRace"/>
+        <Grid x:Name="ImageGrid" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
+            <!--<Image x:Name="Dog1" />
+            <Image x:Name="Dog2" />
+            <Image x:Name="Dog3" />
+            <Image x:Name="Dog4" /> -->
+        </Grid>
 
     </Grid>
 </Page>

@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\deept\Desktop\Assignment3\Racetrack\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-07-31T09:28:03.671</Modified>
+      <Modified>2022-08-01T23:53:47.965</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\deept\Desktop\Assignment3\Racetrack\bin\x86\Debug\Racetrack.exe">
       <PackagePath>entrypoint\Racetrack.exe</PackagePath>
-      <Modified>2022-07-31T09:28:03.188</Modified>
+      <Modified>2022-08-01T23:53:47.506</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.13\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -45,6 +45,22 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.19041.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2020-12-02T08:52:00.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\deept\Desktop\Assignment3\Racetrack\Assets\GreyHound1.jpg">
+      <PackagePath>Assets\GreyHound1.jpg</PackagePath>
+      <Modified>2022-07-31T09:59:17.199</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\deept\Desktop\Assignment3\Racetrack\Assets\GreyHound2.jpg">
+      <PackagePath>Assets\GreyHound2.jpg</PackagePath>
+      <Modified>2022-07-31T09:59:28.515</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\deept\Desktop\Assignment3\Racetrack\Assets\GreyHound3.jpg">
+      <PackagePath>Assets\GreyHound3.jpg</PackagePath>
+      <Modified>2022-07-31T09:59:28.541</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\deept\Desktop\Assignment3\Racetrack\Assets\GreyHound4.jpg">
+      <PackagePath>Assets\GreyHound4.jpg</PackagePath>
+      <Modified>2022-07-31T09:59:28.564</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\deept\Desktop\Assignment3\Racetrack\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
@@ -86,15 +102,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\deept\Desktop\Assignment3\Racetrack\bin\x86\Debug\Racetrack.xr.xml">
       <PackagePath>Racetrack.xr.xml</PackagePath>
-      <Modified>2022-07-31T08:58:20.109</Modified>
+      <Modified>2022-08-01T21:22:12.886</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\deept\Desktop\Assignment3\Racetrack\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2022-07-31T09:28:03.131</Modified>
+      <Modified>2022-08-01T23:53:47.443</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\deept\Desktop\Assignment3\Racetrack\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2022-07-31T09:28:03.131</Modified>
+      <Modified>2022-08-01T23:53:47.442</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -102,11 +118,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\deept\Desktop\Assignment3\Racetrack\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-07-31T03:25:22.325</Modified>
+      <Modified>2022-08-01T20:09:48.796</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\deept\Desktop\Assignment3\Racetrack\bin\x86\Debug\Core\Racetrack.exe">
       <PackagePath>Racetrack.exe</PackagePath>
-      <Modified>2022-07-31T09:28:03.668</Modified>
+      <Modified>2022-08-01T23:53:47.962</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

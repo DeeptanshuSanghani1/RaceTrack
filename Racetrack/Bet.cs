@@ -43,7 +43,10 @@ namespace Racetrack
         //This method calculates the payout amount and adds it to the Winners total cash
         public int Payout(int winner)
         {
-            return 0;
+            if (winner == Racehound)
+                return Amount;
+            else
+                return -1 * Amount;
         }
 
         // This method returns a string that says who placed the bet and for how much amount.

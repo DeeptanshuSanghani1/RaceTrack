@@ -74,20 +74,30 @@ namespace Racetrack
         //This method uses betPlaced to payout the amount to the winner
         public void Collect(int winner)
         {
-
+            if (betPlaced != null)
+            {
+                Cash += betPlaced.Payout(winner);
+                UpdateLabels("won");
+            }
         }
 
         //Method to change the label when the bet is placed
-        public string UpdateLabels()
+        public string UpdateLabels(string won)
         {
-            if (betPlaced == null)
-                return " hasn't placed any bets";
+            if (won == null)
+            {
+                if (betPlaced == null)
+                    return " hasn't placed any bets";
 
-            if (betPlaced.Amount > Cash)
-                return " doesn't have that amount of money";
+                if (betPlaced.Amount > Cash)
+                    return " doesn't have that amount of money";
 
-
-            return betPlaced.GetDescription();
+                return betPlaced.GetDescription();
+            }
+            else
+            {
+                return Name + " has won the bet. Total Cash is " + Cash + "!!";
+            }
         }
     }
 }

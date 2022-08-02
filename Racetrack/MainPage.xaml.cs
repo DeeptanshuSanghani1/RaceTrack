@@ -21,7 +21,6 @@ namespace Racetrack
 
         private const int minBet = 5;
         private const int distance = 1300;
-        public bool racing = false;
         Random random = new Random();
         //Main Class holds the objects and maintains the Interface interactions.
 
@@ -96,8 +95,6 @@ namespace Racetrack
         //Method to execute on Load
         public void OnLoad(object sender, RoutedEventArgs e)
         {
-            //Display label to place bet on Load
-            minBetAmtLabel.Text = "Minmum Bet is {5}";
         }
 
         //Method to set the Bettor on click of Radio Button
@@ -172,17 +169,17 @@ namespace Racetrack
             if (_bettor.Name == "Joe")
             {
                 JoesBetAmt.BorderThickness = new Thickness(0, 0, 0, 0);
-                JoesBetAmt.Text = _bettor.Name + _bettor.UpdateLabels();
+                JoesBetAmt.Text = _bettor.Name + _bettor.UpdateLabels(null);
             }
             else if (_bettor.Name == "Bob")
             {
                 BobsBetAmt.BorderThickness = new Thickness(0, 0, 0, 0);
-                BobsBetAmt.Text = _bettor.Name + _bettor.UpdateLabels();
+                BobsBetAmt.Text = _bettor.Name + _bettor.UpdateLabels(null);
             }
             else
             {
                 AnnasBetAmt.BorderThickness = new Thickness(0, 0, 0, 0);
-                AnnasBetAmt.Text = _bettor.Name + _bettor.UpdateLabels();
+                AnnasBetAmt.Text = _bettor.Name + _bettor.UpdateLabels(null);
             }
         }
 
@@ -190,32 +187,63 @@ namespace Racetrack
         private async void OnStartRace(object sender, RoutedEventArgs e)
         {
 
+            //Introducing Timer
             Timer timer = new Timer();
             timer.Start();
-            //Introducing Timer
-            if (!racing)
+
+            int winner = 0;
+
+            while (winner == 0)
             {
-                int winner = 0;
-                while (winner == 0)
+                for (int i = 0; i < _racehoundList.Count; i++)
                 {
-                    for (int i = 0; i < _racehoundList.Count; i++)
+                    if (_racehoundList[i].Run())
                     {
-                        if (_racehoundList[i].Run())
-                        {
-                            racing = true;
-                            winner = i + 1;
-                            EndRace(_racehoundList[i]);
-                            break;
-                        }
+                        winner = i + 1;
+                        break;
                     }
-                    await Task.Delay(1000);
                 }
+                await Task.Delay(1000);
             }
-            else 
+
+            WinnerDog.Text = "Dog #" + winner + " wins! ";
+
+            for (int i = 0; i < _bettorList.Count; i++)
             {
-                await Task.Delay(5000);
-                timer.Stop(); 
+                _bettorList[i].Collect(winner);
+                _bettorList[i].ClearBet();
             }
+
+            //After the winner is decided, the system will wait for 10 seconds and then initialize the form to start a new race
+            await Task.Delay(10000);
+            EndRace();
+            timer.Stop();
+        }
+
+        private void EndRace()
+        {
+            //Resetting Amount Text Box to original values
+            JoesBetAmt.BorderThickness = new Thickness(1, 1, 1, 1);
+            JoesBetAmt.Text = "";
+            JoesBetAmt.PlaceholderText = "Joe's Bet Amount";
+
+            BobsBetAmt.BorderThickness = new Thickness(1, 1, 1, 1);
+            BobsBetAmt.Text = "";
+            BobsBetAmt.PlaceholderText = "Bob's Bet Amount";
+
+            AnnasBetAmt.BorderThickness = new Thickness(1, 1, 1, 1);
+            AnnasBetAmt.Text = "";
+            AnnasBetAmt.PlaceholderText = "Anna's Bet Amount";
+
+            //Sending Dogs to original position
+            for (int i = 0; i < _racehoundList.Count; i++)
+            {
+                _racehoundList[i].TakeStartingPosition(_racehoundList[i].GHImage.Name);
+            }
+
+            WinnerDog.Text = "";
+            BetAmount.Text = minBet.ToString();
+            SelectDog.Items.Clear();
         }
 
         //This method checks if the Greyhound has reached the finish line
@@ -223,13 +251,6 @@ namespace Racetrack
         {
         }
 
-        private void EndRace(Greyhound winningDog)
-        {
-            for (int i = 0; i < _racehoundList.Count; i++)
-            {
-                _racehoundList[i].TakeStartingPosition(_racehoundList[i].GHImage.Name);
-            }
-        }
         private void SetBettor(int pindex)
         {
             _bettor = _bettorList[pindex];
